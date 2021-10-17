@@ -1,6 +1,13 @@
 import { FC } from 'react';
 
-export const CurrentTemperature: FC = () => (
-	<div className="current-temperature-page">
-	</div>
-);
+interface CurrentTemperatureProps {
+	currentTemperature: any;
+}
+
+export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
+	console.log(props.currentTemperature)
+	return(
+		<div className="current-temperature-page">
+		</div>
+	);
+};

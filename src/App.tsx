@@ -5,7 +5,8 @@ import {
 	Footer,
 	Header,
 	Layout,
-	Main
+	Main,
+	Nav
 } from './Components/Layout';
 import { createBrowserHistory } from 'history';
 
@@ -18,6 +19,7 @@ export const App : FC = () => (
 				<Header
 					title={'React Weather App'}
 				/>
+				<Nav />
 				<Content>
 					<Main />
 					<Footer />
