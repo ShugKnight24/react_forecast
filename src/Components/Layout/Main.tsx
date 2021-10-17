@@ -27,9 +27,18 @@ export const Main: FC = () => {
 		fetchWeatherData();
 	}, []);
 
-export const Main: FC = () => (
-	<Switch>
-		<Route exact path="/" component={ CurrentTemperature } />
-		<Route path="/about" component={ FiveDayForecast } />
-	</Switch>
-);
+	return (
+		<Switch>
+			<Route exact path="/" >
+				<CurrentTemperature
+					currentTemperature={currentTemperature}
+				/>
+			</Route>
+			<Route path="/forecast">
+				<FiveDayForecast
+					currentForecast={currentForecast}
+				/>
+			</Route>
+		</Switch>
+	);
+};
