@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { ThreeHourForecast } from '../Weather/ThreeHourForecast';
+import { List } from '../../Types/ApiResponses/FiveDayForecast';
 
 interface FiveDayForecastPageProps {
-	currentForecast: any;
+	currentForecast: List[] | null;
 }
 
 export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
@@ -10,7 +11,7 @@ export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
 	return(
 		<div className="five-day-forecast-page">
 			<h1>Five Day Forecast</h1>
-			{currentForecast && currentForecast.map((threeHourBlock: any) => {
+			{currentForecast && currentForecast.map((threeHourBlock: List) => {
 				const forecastPeriod = threeHourBlock.dt_txt;
 				const maxTemperature = threeHourBlock.main.temp_max;
 				const minTemperature = threeHourBlock.main.temp_min;

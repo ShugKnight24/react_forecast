@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { getCurrentWeatherIcon } from '../../Services/WeatherService';
 
 interface ThreeHourForecastProps {
-	forecastPeriod: string;
+	forecastPeriod: Date;
 	maxTemperature: number;
 	minTemperature: number;
 	temperatureIcon: string;
