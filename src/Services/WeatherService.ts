@@ -20,3 +20,8 @@ export const getFiveDayForecastByGeoCoordinates = (
 	const url = `forecast?lat=${ latitude }&lon=${ longitude }${ additionalParams }${ apiParam }`;
 	return doGet(url);
 };
+
+// Weather Icons - https://openweathermap.org/weather-conditions
+export const getCurrentWeatherIcon = (iconName: string) => {
+	return `http://openweathermap.org/img/wn/${ iconName }@2x.png`;
+}
