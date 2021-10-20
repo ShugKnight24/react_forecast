@@ -9,10 +9,12 @@ import {
 	getCurrentTemperatureByGeoCoordinates,
 	getFiveDayForecastByGeoCoordinates
 } from '../../Services/WeatherService';
+import { CurrentTemperatureResponse } from '../../Types/ApiResponses/CurrentTemperature';
+import { List } from '../../Types/ApiResponses/FiveDayForecast';
 
 export const Main: FC = () => {
-	const [currentForecastData, setCurrentForecastData] = useState<any>(null);
-	const [currentTemperatureData, setCurrentTemperatureData] = useState<any>(null);
+	const [currentForecastData, setCurrentForecastData] = useState<List[] | null>(null);
+	const [currentTemperatureData, setCurrentTemperatureData] = useState<CurrentTemperatureResponse | null>(null);
 
 	useEffect(() => {
 		const fetchWeatherData = () => {

@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { getCurrentWeatherIcon } from '../../Services/WeatherService';
 
 interface CurrentTemperatureProps {
-	currentTemperatureIcon: string;
-	currentTemperatureValue: number;
-	currentWeatherDescription: string;
-	locationName: string;
-	todaysMaxTemperature: number;
-	todaysMinTemperature: number;
+	currentTemperatureIcon?: string;
+	currentTemperatureValue?: number;
+	currentWeatherDescription?: string;
+	locationName?: string;
+	todaysMaxTemperature?: number;
+	todaysMinTemperature?: number;
 }
 
 export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
@@ -19,7 +19,9 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 		todaysMaxTemperature,
 		todaysMinTemperature
 	} = props;
-	const iconURL = getCurrentWeatherIcon(currentTemperatureIcon);
+	const iconURL = currentTemperatureIcon
+		? getCurrentWeatherIcon(currentTemperatureIcon)
+		: '';
 	return(
 		<div className="current-temperature-container">
 			<h1>Current Temperature</h1>
