@@ -37,8 +37,6 @@ Building a weather app leveraging [OpenWeatherMap API](https://openweathermap.or
   - [Docs](https://openweathermap.org/weather-conditions)
 
 ## ToDos
-- [ ] Cleanup Type Safety
-  - Move away from `any` use
 - [ ] Improve UI
   - [ ] Update Date / Time display on each forecast
   - [ ] Group Forecasts by day

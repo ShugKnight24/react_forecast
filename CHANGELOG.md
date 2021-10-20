@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file
 
+- [X] Update type safety
 - [X] Update Five Day Forecast PAge - 10/19
   - Add Component that handles each three hour forecast block
 - [X] Update Current Temperature Page - 10/19 
