@@ -37,4 +37,4 @@ export const doGet = (uri: string) => {
 	return makeRequest(uri, {
 		method: "GET"
 	});
-}
+};

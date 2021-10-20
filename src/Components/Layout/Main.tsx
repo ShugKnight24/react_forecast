@@ -17,10 +17,16 @@ export const Main: FC = () => {
 	useEffect(() => {
 		const fetchWeatherData = () => {
 			navigator.geolocation.getCurrentPosition((position) => {
-				getFiveDayForecastByGeoCoordinates(position.coords.latitude, position.coords.longitude)
-					.then(response => setCurrentForecastData(response.list));
-				getCurrentTemperatureByGeoCoordinates(position.coords.latitude, position.coords.longitude)
-					.then(response => setCurrentTemperatureData(response));
+				getFiveDayForecastByGeoCoordinates(
+					position.coords.latitude,
+					position.coords.longitude,
+					'&units=imperial'
+				).then(response => setCurrentForecastData(response.list));
+				getCurrentTemperatureByGeoCoordinates(
+					position.coords.latitude,
+					position.coords.longitude,
+					'&units=imperial'
+				).then(response => setCurrentTemperatureData(response));
 			})
 		}
 
