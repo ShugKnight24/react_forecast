@@ -1,2 +1,2 @@
-export { CurrentTemperature } from './CurrentTemperature';
-export { FiveDayForecast } from './FiveDayForecast';
+export { CurrentTemperaturePage } from './CurrentTemperature';
+export { FiveDayForecastPage } from './FiveDayForecast';

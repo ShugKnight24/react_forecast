@@ -1,13 +1,18 @@
 import { FC } from 'react';
 
-interface FiveDayForecastProps {
+interface FiveDayForecastPageProps {
 	currentForecast: any;
 }
 
-export const FiveDayForecast: FC<FiveDayForecastProps> = (props) => {
-	console.log(props.currentForecast)
+export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
+	const { currentForecast } = props;
+
 	return(
 		<div className="five-day-forecast-page">
+			<h1>Five Day Forecast</h1>
+			<pre>
+				{JSON.stringify(currentForecast, null, 2)}
+			</pre>
 		</div>
 	);
 };
