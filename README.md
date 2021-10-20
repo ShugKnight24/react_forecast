@@ -9,35 +9,55 @@ Building a weather app leveraging [OpenWeatherMap API](https://openweathermap.or
 
 ## Running Project
 
-- Install w/ `yarn install` or `npm install`
-- Run w/ `yarn start` or `npm run start`
+  ### Basic Project Setup
+  - Install w/ `yarn install` or `npm install`
+  - Run w/ `yarn start` or `npm run start`
 
-Runs the app in the development mode on port 3000 - [http://localhost:3000](http://localhost:3000)
+  This Runs the app in the development mode on port 3000 - [http://localhost:3000](http://localhost:3000)
+
+  ### Turn on API call Proxying
+  This solves issues w/ CORS - Cross Origin Resource Sharing - when you are running the app locally
+  - Go to [CORSDemo Heroku Project](https://cors-anywhere.herokuapp.com/corsdemo)
+  - Hit the 'Request Temporary access to the demo server` button
+
+  ![image](./cors_docs.png)
+
+  API requests will now be routed through the demo server
 
 ## OpenWeatherMap API References
   - [API Documentation](https://openweathermap.org/api)
 
   ### Current Weather Endpoint
-    - [Docs](https://openweathermap.org/current)
+  - [Docs](https://openweathermap.org/current)
 
   ### Five Day Weather Forecast Endpoint
-    - [Docs](https://openweathermap.org/forecast5)
+  - [Docs](https://openweathermap.org/forecast5)
+
+  ### Weather Icons
+  - [Docs](https://openweathermap.org/weather-conditions)
 
 ## ToDos
-- [ ] Current Temperature Page
-  - [ ] Display current temp @ user's current location
-    - [ ] User Permissions
-	  - [ ] Settings Tab?
-- [ ] 5 Day Forecast
-  - [ ] Display all of the 3-hourly forecasts within 5 day period
-      - Each row in the list should display:
-        - [ ] Forecast date and time
-        - [ ] Forecast temperature in Fahrenheit
-		  - [ ] Add switch that converts to Celcius
-        - [ ] OpenWeatherMap icon that represents the forecast weather conditions
-		  - [Weather Conditions](https://openweathermap.org/weather-conditions)
 - [ ] Cleanup Type Safety
   - Move away from `any` use
+- [ ] Improve UI
+  - [ ] Update Date / Time display on each forecast
+  - [ ] Group Forecasts by day
+    - 8 per day
+  - [ ] General updates
+    - design / styling
+    - layout
+
+## Future Ideas
+- [ ] Add a search bar to search for a city
+- Manually turn location permissions on and off
+  - [ ] Add a button to that turns on/off location permissions
+- UI Improvements
+  - [ ] Settings Drawer
+    - Permissions
+  - [ ] Switch that converts between Celcius & Fahrenheit
+  - [ ] Animation for thermometer
+    - bar filled by temp?
+    - color based on temp?
 
 ## Change Log
 - Follow all changes made in the [Changelog](./CHANGELOG.md)

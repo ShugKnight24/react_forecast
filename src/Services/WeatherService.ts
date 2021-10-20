@@ -5,14 +5,23 @@ const apiParam = `&appid=${ apiKey }`;
 
 export const getCurrentTemperatureByGeoCoordinates = (
 	latitude: number,
-	longitude: number
+	longitude: number,
+	additionalParams: string = ''
 ) => {
-	return doGet(`weather?lat=${ latitude }&lon=${ longitude }${ apiParam }`);
-}
+	const url = `weather?lat=${ latitude }&lon=${ longitude }${ additionalParams }${ apiParam }`;
+	return doGet(url);
+};
 
 export const getFiveDayForecastByGeoCoordinates = (
 	latitude: number,
-	longitude: number
+	longitude: number,
+	additionalParams: string = ''
 ) => {
-	return doGet(`forecast?lat=${ latitude }&lon=${ longitude }${ apiParam }`);
+	const url = `forecast?lat=${ latitude }&lon=${ longitude }${ additionalParams }${ apiParam }`;
+	return doGet(url);
+};
+
+// Weather Icons - https://openweathermap.org/weather-conditions
+export const getCurrentWeatherIcon = (iconName: string) => {
+	return `http://openweathermap.org/img/wn/${ iconName }@2x.png`;
 }
