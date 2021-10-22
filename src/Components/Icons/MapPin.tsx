@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-interface mapPinProps {
+interface MapPinProps {
 	color?: string;
 	size?: number;
 }
 
-export const MapPin: FC<mapPinProps> = ({
+export const MapPin: FC<MapPinProps> = ({
 	color = '#FFF',
 	size = 18
 }) => (

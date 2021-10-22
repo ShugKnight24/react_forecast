@@ -3,6 +3,8 @@ import { getCurrentWeatherIcon } from '../../Services/WeatherService';
 import { capitalizeText } from '../../Utils/text';
 import { MapPin } from '../Icons/MapPin';
 import { returnCurrentDate } from '../../Utils/date';
+import { CurrentDate } from '../../Types/Shared';
+
 interface CurrentTemperatureProps {
 	currentTemperatureIcon?: string;
 	currentTemperatureValue?: number;
@@ -10,14 +12,6 @@ interface CurrentTemperatureProps {
 	locationName?: string;
 	todaysMaxTemperature?: number;
 	todaysMinTemperature?: number;
-}
-
-interface CurrentDate {
-	date: Date;
-	day: number;
-	stringDay: string;
-	stringMonth: string;
-	year: number;
 }
 
 export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
@@ -36,7 +30,7 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 		? capitalizeText(currentWeatherDescription)
 		: '';
 	const currentDate: CurrentDate = returnCurrentDate();
-	const { day, stringDay, stringMonth, year } = currentDate;
+	const { day, hours, minutes, stringDay, stringMonth, year } = currentDate;
 
 	return(
 		<div className="current-temperature-container">
@@ -45,7 +39,7 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 				<div className="date-location-info">
 					<h2 className="dayname">{stringDay}</h2>
 					<span className="date-day">
-						{day} {stringMonth} {year}
+						{day} {stringMonth} {year} - {hours}:{minutes}
 					</span>
 					<br />
 					<span className="location">
