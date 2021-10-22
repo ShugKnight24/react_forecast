@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import { ThreeHourForecast } from '../Weather/ThreeHourForecast';
-import { List } from '../../Types/ApiResponses/FiveDayForecast';
+import { City, List } from '../../Types/ApiResponses/FiveDayForecast';
 
 interface FiveDayForecastPageProps {
-	currentForecast: List[] | null;
+	currentCity?: City;
+	currentForecast?: List[];
 }
 
 export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
-	const { currentForecast } = props;
+	const { currentCity, currentForecast } = props;
 	return(
 		<div className="five-day-forecast-page">
 			<h1>Five Day Forecast</h1>
