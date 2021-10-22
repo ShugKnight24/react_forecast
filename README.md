@@ -20,7 +20,12 @@ Building a weather app leveraging [OpenWeatherMap API](https://openweathermap.or
   - Go to [CORSDemo Heroku Project](https://cors-anywhere.herokuapp.com/corsdemo)
   - Hit the 'Request Temporary access to the demo server` button
 
-  ![image](./cors_docs.png)
+  ## CORSDemo Heroku Project Image
+
+  ### Before
+  ![image](./cors_docs_before.png)
+  ### After
+  ![image](./cors_docs_after.png)
 
   API requests will now be routed through the demo server
 
@@ -38,12 +43,15 @@ Building a weather app leveraging [OpenWeatherMap API](https://openweathermap.or
 
 ## ToDos
 - [ ] Improve UI
-  - [ ] Update Date / Time display on each forecast
   - [ ] Group Forecasts by day
-    - 8 per day
-  - [ ] General updates
-    - design / styling
-    - layout
+  - [ ] Calculate Location from Lat and Long on Forecast
+  - [ ] Add Sunrise / Sunset times
+  - [ ] Improve Cards
+    - [ ] Add a background image
+    - [ ] Refactor to be a single component
+      - Refactor atoms...?
+  - [ ] Add a button that goes to CORS Demo
+    - Settings drawer 
 
 ## Future Ideas
 - [ ] Add a search bar to search for a city

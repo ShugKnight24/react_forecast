@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file
 
-- [X] Update type safety
+- [X] Improve Type Safety - 10/21
+- [X] Update UI - 10/21
+  - [X] Refine info on CurrentTemperature Componenet
+  - [X] Refine info on ThreeHourForecast Componenet
+  - [X] Add MapPin Icon
+  - [X] Improve styling
+- [X] Update type safety - 10/19
 - [X] Update Five Day Forecast PAge - 10/19
   - Add Component that handles each three hour forecast block
 - [X] Update Current Temperature Page - 10/19 
