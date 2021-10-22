@@ -1,5 +1,9 @@
 import { FC } from 'react';
 import { getCurrentWeatherIcon } from '../../Services/WeatherService';
+import { capitalizeText } from '../../Utils/text';
+import { MapPin } from '../Icons/MapPin';
+import { returnCurrentDate } from '../../Utils/date';
+import { CurrentDate } from '../../Types/Shared';
 
 interface CurrentTemperatureProps {
 	currentTemperatureIcon?: string;
@@ -22,25 +26,39 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 	const iconURL = currentTemperatureIcon
 		? getCurrentWeatherIcon(currentTemperatureIcon)
 		: '';
+	const capitalizedDescription = currentWeatherDescription 
+		? capitalizeText(currentWeatherDescription)
+		: '';
+	const currentDate: CurrentDate = returnCurrentDate();
+	const { day, hours, minutes, stringDay, stringMonth, year } = currentDate;
+
 	return(
 		<div className="current-temperature-container">
-			<h1>Current Temperature</h1>
-			<div className="current-temp-info">
-				<p>
-					Description: {currentWeatherDescription}
-					<span>
-						<img
-							src={iconURL}
-							alt="Current Weather Icon"
-						/>
+			<div className="overlay">
+				<h1>Current Temperature</h1>
+				<div className="date-location-info">
+					<h2 className="dayname">{stringDay}</h2>
+					<span className="date-day">
+						{day} {stringMonth} {year} - {hours}:{minutes}
 					</span>
-				</p>
+					<br />
+					<span className="location">
+						<MapPin /> {locationName}
+					</span>
+				</div>
+				<div className="current-temp-info">
+					<img
+						src={iconURL}
+						alt="Current Weather Icon"
+					/>
+				</div>
+				<ul>
+					<li>High: {todaysMaxTemperature}&deg;F</li>
+					<li>Low: {todaysMinTemperature}&deg;F</li>
+					<li className="current-temp">{currentTemperatureValue}&deg;F</li>
+					<li className="weather-description">{capitalizedDescription}</li>
+				</ul>
 			</div>
-			<ul>
-				<li>Current Temperature for {locationName}: {currentTemperatureValue}&deg;F</li>
-				<li>Today's High: {todaysMaxTemperature}&deg;F</li>
-				<li>Today's Low: {todaysMinTemperature}&deg;F</li>
-			</ul>
 		</div>
 	);
 };

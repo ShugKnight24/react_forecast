@@ -13,8 +13,6 @@ export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
 			<h1>Five Day Forecast</h1>
 			{currentForecast && currentForecast.map((threeHourBlock: List) => {
 				const forecastPeriod = threeHourBlock.dt_txt;
-				const maxTemperature = threeHourBlock.main.temp_max;
-				const minTemperature = threeHourBlock.main.temp_min;
 				const temperatureIcon = threeHourBlock.weather[0].icon;
 				const temperatureValue = threeHourBlock.main.temp;
 				const weatherDescription = threeHourBlock.weather[0].description;
@@ -23,8 +21,6 @@ export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
 					<ThreeHourForecast
 						key={threeHourBlock.dt}
 						forecastPeriod={forecastPeriod}
-						maxTemperature={maxTemperature}
-						minTemperature={minTemperature}
 						temperatureIcon={temperatureIcon}
 						temperatureValue={temperatureValue}
 						weatherDescription={weatherDescription}
