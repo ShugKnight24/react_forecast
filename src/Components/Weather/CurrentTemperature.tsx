@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { getCurrentWeatherIcon } from '../../Services/WeatherService';
-
+import { capitalizeText } from '../../Utils/text';
+import { MapPin } from '../Icons/MapPin';
+import { returnCurrentDate } from '../../Utils/date';
 interface CurrentTemperatureProps {
 	currentTemperatureIcon?: string;
 	currentTemperatureValue?: number;
@@ -8,6 +10,14 @@ interface CurrentTemperatureProps {
 	locationName?: string;
 	todaysMaxTemperature?: number;
 	todaysMinTemperature?: number;
+}
+
+interface CurrentDate {
+	date: Date;
+	day: number;
+	stringDay: string;
+	stringMonth: string;
+	year: number;
 }
 
 export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
@@ -22,25 +32,39 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 	const iconURL = currentTemperatureIcon
 		? getCurrentWeatherIcon(currentTemperatureIcon)
 		: '';
+	const capitalizedDescription = currentWeatherDescription 
+		? capitalizeText(currentWeatherDescription)
+		: '';
+	const currentDate: CurrentDate = returnCurrentDate();
+	const { day, stringDay, stringMonth, year } = currentDate;
+
 	return(
 		<div className="current-temperature-container">
-			<h1>Current Temperature</h1>
-			<div className="current-temp-info">
-				<p>
-					Description: {currentWeatherDescription}
-					<span>
-						<img
-							src={iconURL}
-							alt="Current Weather Icon"
-						/>
+			<div className="overlay">
+				<h1>Current Temperature</h1>
+				<div className="date-location-info">
+					<h2 className="dayname">{stringDay}</h2>
+					<span className="date-day">
+						{day} {stringMonth} {year}
 					</span>
-				</p>
+					<br />
+					<span className="location">
+						<MapPin /> {locationName}
+					</span>
+				</div>
+				<div className="current-temp-info">
+					<img
+						src={iconURL}
+						alt="Current Weather Icon"
+					/>
+				</div>
+				<ul>
+					<li>High: {todaysMaxTemperature}&deg;F</li>
+					<li>Low: {todaysMinTemperature}&deg;F</li>
+					<li className="current-temp">{currentTemperatureValue}&deg;F</li>
+					<li className="weather-description">{capitalizedDescription}</li>
+				</ul>
 			</div>
-			<ul>
-				<li>Current Temperature for {locationName}: {currentTemperatureValue}&deg;F</li>
-				<li>Today's High: {todaysMaxTemperature}&deg;F</li>
-				<li>Today's Low: {todaysMinTemperature}&deg;F</li>
-			</ul>
 		</div>
 	);
 };
