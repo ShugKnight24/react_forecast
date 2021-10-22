@@ -17,11 +17,15 @@ export const FiveDayForecastPage: FC<FiveDayForecastPageProps> = (props) => {
 				const temperatureIcon = threeHourBlock.weather[0].icon;
 				const temperatureValue = threeHourBlock.main.temp;
 				const weatherDescription = threeHourBlock.weather[0].description;
+				const sunrise = currentCity?.sunrise;
+				const sunset = currentCity?.sunset;
 
 				return(
 					<ThreeHourForecast
 						key={threeHourBlock.dt}
 						forecastPeriod={forecastPeriod}
+						sunrise={sunrise}
+						sunset={sunset}
 						temperatureIcon={temperatureIcon}
 						temperatureValue={temperatureValue}
 						weatherDescription={weatherDescription}

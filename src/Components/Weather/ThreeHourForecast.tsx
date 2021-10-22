@@ -3,9 +3,13 @@ import { getCurrentWeatherIcon } from '../../Services/WeatherService';
 import { capitalizeText } from '../../Utils/text';
 import { returnCurrentDate } from '../../Utils/date';
 import { CurrentDate } from '../../Types/Shared';
+import { Sunrise } from '../Icons/Sunrise';
+import { Sunset } from '../Icons/Sunset';
 
 interface ThreeHourForecastProps {
 	forecastPeriod: Date;
+	sunrise?: number;
+	sunset?: number;
 	temperatureIcon: string;
 	temperatureValue: number;
 	weatherDescription: string;
@@ -14,6 +18,8 @@ interface ThreeHourForecastProps {
 export const ThreeHourForecast: FC<ThreeHourForecastProps> = (props) => {
 	const {
 		forecastPeriod,
+		sunrise,
+		sunset,
 		temperatureIcon,
 		temperatureValue,
 		weatherDescription
@@ -24,6 +30,12 @@ export const ThreeHourForecast: FC<ThreeHourForecastProps> = (props) => {
 		: '';
 	const currentDate: CurrentDate = returnCurrentDate(forecastPeriod);
 	const { day, hours, minutes, stringDay, stringMonth, year } = currentDate;
+	const sunriseTime: CurrentDate | null = sunrise 
+		? returnCurrentDate(new Date(sunrise))
+		: null;
+	const sunsetTime: CurrentDate | null = sunset 
+		? returnCurrentDate(new Date(sunset))
+		: null;
 	
 	return(
 		<div className="three-hour-block-container">
@@ -33,10 +45,16 @@ export const ThreeHourForecast: FC<ThreeHourForecastProps> = (props) => {
 					<span className="date-day">
 						{day} {stringMonth} {year} - {hours}:{minutes}
 					</span>
-					<span className="forecast-time">
-
-					</span>
 					<br />
+					<span className="sunrise-sunset">
+						<Sunrise
+							size={40}
+						/> {sunriseTime?.hours}:{sunriseTime?.minutes}
+						<br />
+						<Sunset
+							size={40}
+						/> {sunsetTime?.hours}:{sunsetTime?.minutes}
+					</span>
 				</div>
 				<div className="current-temp-info">
 					<img
