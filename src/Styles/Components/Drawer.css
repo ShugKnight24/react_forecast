@@ -67,6 +67,22 @@
 	padding-left: 42px;
 }
 
+.drawer a {
+	margin-bottom: 0.9em;
+	font-size: 1.25em;
+	padding: 18px 42px;
+	margin: 0;
+	color: #757575;
+	border-bottom: none;
+}
+
+.drawer a.active,
+.drawer a:hover {
+	font-weight: bold;
+	background-color: #e0e0e0;
+	text-shadow: none;
+	font-size: 1.5em;
+}
 
 .drawer-overlay.active {
 	position: fixed;

@@ -62,6 +62,7 @@ export const App : FC = () => {
 						title="Settings"
 						isVisible={ isVisible }
 					>
+						<a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank" rel="noreferrer noopener">CORS Demo</a>
 					</Drawer>
 					<div
 						className={`drawer-overlay ${ isVisible ? 'active' : '' }`}
