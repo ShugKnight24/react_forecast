@@ -43,23 +43,20 @@ Building a weather app leveraging [OpenWeatherMap API](https://openweathermap.or
 
 ## ToDos
 - [ ] Improve UI
+  - [ ] Improve responsiveness
   - [ ] Group Forecasts by day
   - [ ] Calculate Location from Lat and Long on Forecast
-  - [ ] Add Sunrise / Sunset times
   - [ ] Improve Cards
     - [ ] Add a background image
     - [ ] Refactor to be a single component
       - Refactor atoms...?
-  - [ ] Add a button that goes to CORS Demo
-    - Settings drawer 
 
 ## Future Ideas
 - [ ] Add a search bar to search for a city
 - Manually turn location permissions on and off
   - [ ] Add a button to that turns on/off location permissions
 - UI Improvements
-  - [ ] Settings Drawer
-    - Permissions
+  - [ ] Manual Permissions
   - [ ] Switch that converts between Celcius & Fahrenheit
   - [ ] Animation for thermometer
     - bar filled by temp?

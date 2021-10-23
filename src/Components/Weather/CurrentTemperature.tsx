@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { getCurrentWeatherIcon } from '../../Services/WeatherService';
 import { capitalizeText } from '../../Utils/text';
 import { MapPin } from '../Icons/MapPin';
+import { Sunrise } from '../Icons/Sunrise';
+import { Sunset } from '../Icons/Sunset';
 import { returnCurrentDate } from '../../Utils/date';
 import { CurrentDate } from '../../Types/Shared';
 
@@ -10,6 +12,8 @@ interface CurrentTemperatureProps {
 	currentTemperatureValue?: number;
 	currentWeatherDescription?: string;
 	locationName?: string;
+	sunrise?: number;
+	sunset?: number;
 	todaysMaxTemperature?: number;
 	todaysMinTemperature?: number;
 }
@@ -20,6 +24,8 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 		currentTemperatureValue,
 		currentWeatherDescription,
 		locationName,
+		sunrise,
+		sunset,
 		todaysMaxTemperature,
 		todaysMinTemperature
 	} = props;
@@ -31,6 +37,12 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 		: '';
 	const currentDate: CurrentDate = returnCurrentDate();
 	const { day, hours, minutes, stringDay, stringMonth, year } = currentDate;
+	const sunriseTime: CurrentDate | null = sunrise 
+		? returnCurrentDate(new Date(sunrise))
+		: null;
+	const sunsetTime: CurrentDate | null = sunset 
+		? returnCurrentDate(new Date(sunset))
+		: null;
 
 	return(
 		<div className="current-temperature-container">
@@ -43,7 +55,19 @@ export const CurrentTemperature: FC<CurrentTemperatureProps> = (props) => {
 					</span>
 					<br />
 					<span className="location">
-						<MapPin /> {locationName}
+						<MapPin 
+							size={40}
+						/> {locationName}
+					</span>
+					<br />
+					<span className="sunrise-sunset">
+						<Sunrise
+							size={40}
+						/> {sunriseTime?.hours}:{sunriseTime?.minutes}
+						<br />
+						<Sunset
+							size={40}
+						/> {sunsetTime?.hours}:{sunsetTime?.minutes}
 					</span>
 				</div>
 				<div className="current-temp-info">

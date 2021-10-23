@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file
 
+- [X] Add a link that goes to CORS Demo - 10/22
+- [X] Add a Drawer Component - 10/22
+- [X] Add Sunrise & Sunset Icons - 10/22
 - [X] Improve Type Safety - 10/21
 - [X] Update UI - 10/21
   - [X] Refine info on CurrentTemperature Componenet

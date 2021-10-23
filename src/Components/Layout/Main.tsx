@@ -10,10 +10,10 @@ import {
 	getFiveDayForecastByGeoCoordinates
 } from '../../Services/WeatherService';
 import { CurrentTemperatureResponse } from '../../Types/ApiResponses/CurrentTemperature';
-import { List } from '../../Types/ApiResponses/FiveDayForecast';
+import { FiveDayForecastResponse } from '../../Types/ApiResponses/FiveDayForecast';
 
 type CurrentTempResponseType = CurrentTemperatureResponse | null;
-type ForecastResponseType = List[] | null;
+type ForecastResponseType = FiveDayForecastResponse | null;
 
 export const Main: FC = () => {
 	const [currentForecastData, setCurrentForecastData] = useState<ForecastResponseType>(null);
@@ -26,7 +26,7 @@ export const Main: FC = () => {
 					position.coords.latitude,
 					position.coords.longitude,
 					'&units=imperial'
-				).then(response => setCurrentForecastData(response.list));
+				).then(response => setCurrentForecastData(response));
 				getCurrentTemperatureByGeoCoordinates(
 					position.coords.latitude,
 					position.coords.longitude,
@@ -47,7 +47,8 @@ export const Main: FC = () => {
 			</Route>
 			<Route path="/forecast">
 				<FiveDayForecastPage
-					currentForecast={currentForecastData}
+					currentCity={currentForecastData?.city}
+					currentForecast={currentForecastData?.list}
 				/>
 			</Route>
 		</Switch>

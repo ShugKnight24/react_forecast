@@ -103,6 +103,13 @@ code {
   margin: 18px 0;
 }
 
+.sunrise-sunset svg {
+  margin: 12px 0;
+  color: #fff;
+  vertical-align: middle;
+  filter: drop-shadow(3px 3px 3px rgb(0 0 0 / 0.9));
+}
+
 /* Current Temperature Page */
 .overlay {
   margin: 0;
