@@ -45,4 +45,4 @@ export const returnCurrentDate = (dateValue?: Date): CurrentDate => {
 		stringMonth: months[strMonth],
 		year
 	}
-}
+};
